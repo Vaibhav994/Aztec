@@ -132,7 +132,7 @@ sudo docker logs $(docker ps -q --filter ancestor=aztecprotocol/aztec:latest | h
 
 ```
 * This reveals your Node's Peer ID, Now search it on [Nethermind Explorer](https://aztec.nethermind.io/)
-* Note: It might takes some hours for your node to show up in Nethermind Explorer after it fully synced.
+* Note: It might take some hours for your node to show up in Nethermind Explorer after it fully synced.
 
 ## 8️⃣ Save P2P Private Key :
 **Find your Node's P2P private key:**
