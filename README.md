@@ -172,7 +172,7 @@ aztec-up latest
 
 * 3️⃣ Re-run Node
 
-Return to [Step 9: Run Sequencer Node](https://github.com/OneEyeKing001/aztec?tab=readme-ov-file#9-run-sequencer-node) to re-run your node
+Return to [Step 5: Run Sequencer Node](https://github.com/Vaibhav994/Aztec/blob/main/README.md#5%EF%B8%8F%E2%83%A3-run-sequencer-node) to re-run your node
 
 ---
 
@@ -180,7 +180,7 @@ Return to [Step 9: Run Sequencer Node](https://github.com/OneEyeKing001/aztec?ta
 ## Get Apprentice Discord Role:
 Go to the discord channel :[operators| start-here](https://discord.com/channels/1144692727120937080/1367196595866828982/1367323893324582954) and type `/operator start` then follow the prompts.
 
-**Step 1: Get the latest proven block number:**
+**1️⃣ Get the latest proven block number:**
 ```bash
 curl -s -X POST -H 'Content-Type: application/json' \
 -d '{"jsonrpc":"2.0","method":"node_getL2Tips","params":[],"id":67}' \
@@ -189,7 +189,7 @@ http://localhost:8080 | jq -r ".result.proven.number"
 * Save this block number for the next steps
 * Example output: 20905
 
-**Step 2: Generate your sync proof**
+**2️⃣ Generate your sync proof**
 ```bash
 curl -s -X POST -H 'Content-Type: application/json' \
 -d '{"jsonrpc":"2.0","method":"node_getArchiveSiblingPath","params":["BLOCK_NUMBER","BLOCK_NUMBER"],"id":67}' \
@@ -197,7 +197,7 @@ http://localhost:8080 | jq -r ".result"
 ```
 * Replace 2x `BLOCK_NUMBER` with your number
 
-**Step 3: Register with Discord**
+**3️⃣ Register with Discord**
 * Type the following command in this Discord server: `/operator start`
 * After typing the command, Discord will display option fields that look like this:
 * `address`:            Your validator address (Ethereum Address)
