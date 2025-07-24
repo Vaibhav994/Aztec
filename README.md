@@ -39,8 +39,6 @@ sudo systemctl enable docker
 sudo systemctl restart docker
 ```
 
----
-
 ## 2️⃣ Install Aztec Tools
 ```bash
 bash -i <(curl -s https://install.aztec.network)
@@ -61,15 +59,11 @@ aztec
 aztec-up latest
 ```
 
----
-
 ## 3️⃣ Obtain RPC URLs and Generate Ethereum Keys
 * You can get Sepolia `Geth` and `Beacon` RCP from TF Team at discounted price. (Limited Slots only!)
 * Get an EVM Wallet with `Private Key` and `Public Address` saved.
 
 * Fund your Ethereum Wallet with [`ETH Sepolia`](https://cloud.google.com/application/web3/faucet/ethereum/sepolia).
-
----
 
 ## 4️⃣ Find IP and Enable Firewall & Open Ports
 ```bash
@@ -89,7 +83,6 @@ ufw allow 40400
 ufw allow 8080
 ```
 
----
 ## 5️⃣ Run Sequencer Node
 * Open TMUX
 ```bash
@@ -121,8 +114,6 @@ Replace the following variables before you Run Node:
 * Kill Tmux (when inside): `Ctrl`+`B` + `X`
 * Kill Tmux (when outside): `tmux kill-pane -t aztec`
 
----
-
 ## 6️⃣ Check Sync Status
 * After entering the command, your node starts running, It takes a few minutes for your node to get synced.
 
@@ -134,8 +125,6 @@ http://localhost:8080 | jq -r ".result.proven.number"
 ```
 * Check the latest block number of Aztec network: https://aztecscan.xyz/
 
----
-
 ## 7️⃣ Verify Node's Peer ID:
 **Find your Node's Peer ID:**
 ```bash
@@ -145,8 +134,6 @@ sudo docker logs $(docker ps -q --filter ancestor=aztecprotocol/aztec:latest | h
 * This reveals your Node's Peer ID, Now search it on [Nethermind Explorer](https://aztec.nethermind.io/)
 * Note: It might takes some hours for your node to show up in Nethermind Explorer after it fully synced.
 
----
-
 ## 8️⃣ Save P2P Private Key :
 **Find your Node's P2P private key:**
 ```bash
@@ -154,29 +141,73 @@ nano .aztec/alpha-testnet/data/p2p-private-key
 ```
 * This reveals your Node's P2P Private key, Save it for future use.
 * You can use it to re-run your node on another vps with same Peer ID.
+
 ---
 
 
 
 ## 🔃 Update Sequencer Node
-* 1️⃣ Stop Node:
+1️⃣ Stop Node:
 ```console
 Ctrl + c
 ```
 
-* 2️⃣ Update Node:
+2️⃣ Update Node:
 ```bash
 aztec-up latest
 ```
 
 
-* 3️⃣ Re-run Node
+3️⃣ Re-run Node
 
 Return to [Step 5: Run Sequencer Node](https://github.com/Vaibhav994/Aztec/blob/main/README.md#5%EF%B8%8F%E2%83%A3-run-sequencer-node) to re-run your node
 
 ---
 
+## Upgrade Aztec Node 
+ * Stop Aztec Node with `CTRL + C`
 
+1️⃣ Upgrade to v1.1.0
+```
+aztec-up 1.1.0
+```
+
+* Clear Data and Worldstate
+```
+rm -rf /tmp/aztec-world-state-*
+rm -rf ~/.aztec/alpha-testnet/data
+```
+
+ * Update your startup command:
+   + Replace --sequencer.validatorPrivateKey ➡️=>>> with `--sequencer.validatorPrivateKeys` (note the plural)
+   + Provide a comma-separated list of private keys to run multiple validators (eg: upto 10).
+     
+ * (Optional) Set a --sequencer.publisherPrivateKey
+   + This address will post transactions.
+   + Only this address needs to be funded with Sepolia ETH if you’re running multiple validators.
+
+2️⃣ In your current shell use; 
+```
+export COINBASE=0xaddress
+export LOG_LEVEL=debug
+export P2P_MAX_TX_POOL_SIZE=1000000000
+```
+
+3️⃣ Start Aztec by updating [Step 5: Run Sequencer Node](https://github.com/Vaibhav994/Aztec/blob/main/README.md#5%EF%B8%8F%E2%83%A3-run-sequencer-node) command or use this command (e.g) 
+```
+aztec start \
+  --network alpha-testnet \
+  --l1-rpc-urls " " \
+  --l1-consensus-host-urls " " \
+  --sequencer.validatorPrivateKeys "      " \
+  --p2p.p2pIp "      " \
+  --archiver \
+  --node \
+  --sequencer
+```
+
+
+---
 ## Get Apprentice Discord Role:
 Go to the discord channel :[operators| start-here](https://discord.com/channels/1144692727120937080/1367196595866828982/1367323893324582954) and type `/operator start` then follow the prompts.
 
@@ -218,4 +249,4 @@ Then you'll get your `Guardian` Role
 
 * `IP`:                      Vps Ip you get in [Step 4](https://github.com/Vaibhav994/Aztec/blob/main/README.md#4%EF%B8%8F%E2%83%A3-find-ip-and-enable-firewall--open-ports)
 
-* `node_eth_address `:       ETH Public address you generated in [Step 3](https://github.com/OneEyeKing001/aztec?tab=readme-ov-file#5-generate-ethereum-keys)
+* `node_eth_address `:       ETH Public address you generated in [Step 3](https://github.com/Vaibhav994/Aztec/blob/main/README.md#3%EF%B8%8F%E2%83%A3-obtain-rpc-urls-and-generate-ethereum-keys)
