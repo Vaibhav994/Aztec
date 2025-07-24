@@ -3,7 +3,7 @@ A step by step guide on How to Run `Sequencer Node` on Aztec Network Testnet & E
 
 ---
 
-## 1️⃣ Install Dependecies
+## 1️⃣ Install Dependecies 🛠
 * Update packages:
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
@@ -164,7 +164,7 @@ Return to [Step 5: Run Sequencer Node](https://github.com/Vaibhav994/Aztec/blob/
 
 ---
 
-## Upgrade Aztec Node 
+## 📈 Upgrade Aztec Node 
  * Stop Aztec Node with `CTRL + C`
 
 1️⃣ Upgrade to v1.1.0
