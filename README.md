@@ -216,6 +216,6 @@ Go to the discord channel :[operators| start-here](https://discord.com/channels/
 
 Then you'll get your `Guardian` Role
 
-* `IP`:                      Vps Ip you get in [Step 7](https://github.com/OneEyeKing001/aztec?tab=readme-ov-file#7-find-ip)
+* `IP`:                      Vps Ip you get in [Step 4](https://github.com/Vaibhav994/Aztec/blob/main/README.md#4%EF%B8%8F%E2%83%A3-find-ip-and-enable-firewall--open-ports)
 
-* `node_eth_address `:       ETH Public address you generated in [Step 5](https://github.com/OneEyeKing001/aztec?tab=readme-ov-file#5-generate-ethereum-keys)
+* `node_eth_address `:       ETH Public address you generated in [Step 3](https://github.com/OneEyeKing001/aztec?tab=readme-ov-file#5-generate-ethereum-keys)
