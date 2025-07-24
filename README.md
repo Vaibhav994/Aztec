@@ -232,8 +232,8 @@ http://localhost:8080 | jq -r ".result"
 * Type the following command in this Discord server: `/operator start`
 * After typing the command, Discord will display option fields that look like this:
 * `address`:            Your validator address (Ethereum Address)
-* `block-number`:      Block number for verification (Block number from [Step 1](https://github.com/OneEyeKing001/aztec?tab=readme-ov-file#1-install-dependecies))
-* `proof`:             Your sync proof (base64 string from [Step 2](https://github.com/OneEyeKing001/aztec?tab=readme-ov-file#2-install-aztec-tools))
+* `block-number`:      Block number for verification (Block number from [Step 1](https://github.com/Vaibhav994/Aztec/edit/main/README.md#get-apprentice-discord-role))
+* `proof`:             Your sync proof (base64 string from [Step 2](https://github.com/Vaibhav994/Aztec/edit/main/README.md#get-apprentice-discord-role))
 
 Then you'll get your `Apprentice` Role.
 
